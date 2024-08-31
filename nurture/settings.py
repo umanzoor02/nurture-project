@@ -134,6 +134,8 @@ STATIC_URL = 'static/'
 CRISPY_TEMPLATE_PACK='bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
+# settings.py
+LOGIN_REDIRECT_URL = 'home'  # Use the name of your home URL pattern
 
 
 
