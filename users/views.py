@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from . forms import UserRegistrationForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from .models import Child
 
 
 
@@ -27,6 +28,7 @@ def profile(request):
         u_form=UserUpdateForm(instance=request.user)
         p_form=ProfileUpdateForm(instance=request.user.profile)
     context={
+        'childs':request.user.children.values_list('name',flat=True).first(),
         'u_form':u_form,
         'p_form':p_form,
     }

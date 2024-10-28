@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Child(models.Model):
     name=models.CharField(max_length=100)
     age=models.IntegerField()
-    parent=models.ForeignKey(User,on_delete=models.CASCADE)
+    parent=models.ForeignKey(User,on_delete=models.CASCADE, related_name='children')
     child_id=models.IntegerField(primary_key=True)
 
 
