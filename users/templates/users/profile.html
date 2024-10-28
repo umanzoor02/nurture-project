@@ -1,16 +1,26 @@
 {% extends 'home/base.html' %}
-{% block title %}{{username.name}}{% endblock title %}
+{% load crispy_forms_tags %} 
+{% block title %}{{user.username}}{% endblock title %}
 {% block content %}
-    <div class="profile-container">
+    <div class="profile-container" style="margin-right:50px">
         <h2>Your Profile</h2>
-        <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+        <img src= "{{ user.profile.image.url }}" alt="Profile Picture" class="profile-pic">
         <div class="profile-info">
             <p><strong>Username:</strong> {{ user.username }}</p>
             <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>First Name:</strong> {{ user.first_name }}</p>
-            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
         </div>
         <a href="#" class="edit-profile-btn">Edit Profile</a>
     </div>
+    <form method='POST' enctype='multipart/form-data'>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Profile info</legend>
+            {{u_form|crispy }}
+            {{p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
 
 {% endblock content %}

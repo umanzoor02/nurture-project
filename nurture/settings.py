@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -130,12 +131,15 @@ STATIC_URL = 'static/'
 #STATICFILES_DIRS = [
 #    BASE_DIR / "static",
 #]
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL= '/media/'
 
 CRISPY_TEMPLATE_PACK='bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 # settings.py
-LOGIN_REDIRECT_URL = 'home'  # Use the name of your home URL pattern
+LOGIN_REDIRECT_URL = 'home'  # Use the name of your home URL pattern (whenever you login it will redirect to this url)
+LOGIN_URL='login'     # whenever a url which is on logine_required feature is accessed it will redirect to login url
 
 
 

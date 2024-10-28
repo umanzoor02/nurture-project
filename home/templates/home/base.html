@@ -7,24 +7,29 @@
     <title>{% block title %}Nurture{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
 
 <style>
     body{
-        background-color:lightgreen
+        background-color:rgb(255, 236, 236);
+        color:rgb(180, 174, 174)
     }
     input {
         background-color:lightblue;
-        border-color:blue;
+        border-color:rgb(189, 187, 187);
+    }
+    input:focus{
+        outline-color: rgb(189, 187, 187);
     }
 </style>
+
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4CAF50;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f0e2e2; ">
         <div class="container">
-            <a class="navbar-brand" href="#">Nurture AI</a>
+            <a class="navbar-brand"style="color:rgb(180, 174, 174);" href="#">Nurture AI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,37 +38,37 @@
                   
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" style="color:rgb(180, 174, 174);" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Homeschooling</a>
+                        <a class="nav-link" style="color:rgb(180, 174, 174);" href="#">Homeschooling</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Child Growth</a>
+                        <a class="nav-link" style="color:rgb(180, 174, 174);" href="#">Child Growth</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" style="color:rgb(180, 174, 174);" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link"style="color:rgb(180, 174, 174);" href="#">Contact</a>
                     </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link"style="color:rgb(180, 174, 174);" href="{% url 'profile' %}">Profile</a>
                         </li>
                         <li class="nav-item">
                             <form id="logout-form" action="{% url 'logout' %}" method="post" style="display:inline;">
                                 {% csrf_token %}
-                                <button type="submit" class="nav-link " style="padding: 5;  margin: 0; border: none; background: none;  font: inherit; cursor: pointer;">
+                                <button type="submit" class="nav-link " style="padding: 5;color:rgb(180, 174, 174);  margin: 0; border: none; background: none;  font: inherit; cursor: pointer;">
                                     Logout
                                 </button>
                             </form>
                         </li>                                              
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link"style="color:rgb(180, 174, 174);" href="{% url 'login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Signup</a>
+                            <a class="nav-link"style="color:rgb(180, 174, 174);" href="{% url 'register' %}">Signup</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -79,12 +84,12 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-white text-center py-3" style="background-color: #4CAF50;">
+    <footer class="text-white text-center py-3" style="background-color: #f0e2e2;">
         <div class="container">
-            <p>&copy; 2024 Nurture. All rights reserved.</p>
-            <p>
-                <a href="#" class="text-white">Privacy Policy</a> |
-                <a href="#" class="text-white">Terms of Service</a>
+            <p style="color:rgb(180, 174, 174);">&copy; 2024 Nurture. All rights reserved.</p>
+            <p style="color:rgb(180, 174, 174);">
+                <a href="#" style="color:rgb(180, 174, 174);" >Privacy Policy</a> |
+                <a href="#" style="color:rgb(180, 174, 174);" >Terms of Service</a>
             </p>
         </div>
     </footer>
